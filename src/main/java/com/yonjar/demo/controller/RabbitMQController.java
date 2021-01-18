@@ -5,7 +5,6 @@ import com.alibaba.cola.dto.SingleResponse;
 import com.yonjar.demo.cmd.MessageCmd;
 import com.yonjar.demo.service.HelloSender;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
