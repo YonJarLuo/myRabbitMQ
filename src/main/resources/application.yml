@@ -1,0 +1,19 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: rabbitmq-demo
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+# swagger配置
+swagger:
+  enabled: true
+  title: RabbitMQ
+  description: "RabbitMQ 接口"
+  version: 1.0
+  base-package: com.yonjar.demo #包名

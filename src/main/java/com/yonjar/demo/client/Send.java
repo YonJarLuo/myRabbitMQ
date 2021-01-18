@@ -1,4 +1,4 @@
-package com.yonjar.demo;
+package com.yonjar.demo.client;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -19,6 +19,9 @@ public class Send {
         //创建连接
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
+        factory.setPort(15672);
         Connection connection = factory.newConnection();
 
         //建立通道channel
@@ -30,6 +33,7 @@ public class Send {
         String message = "Hello RabbitMQ!";
 
         //进行消息发布
+        //exchange  routing key  props  body
         channel.basicPublish("",queueName,null,message.getBytes());
 
         //关闭通道和连接

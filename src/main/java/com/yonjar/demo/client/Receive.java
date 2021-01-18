@@ -1,4 +1,4 @@
-package com.yonjar.demo;
+package com.yonjar.demo.client;
 
 import com.rabbitmq.client.*;
 
@@ -14,6 +14,9 @@ public class Receive {
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
+        factory.setPort(15672);
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
