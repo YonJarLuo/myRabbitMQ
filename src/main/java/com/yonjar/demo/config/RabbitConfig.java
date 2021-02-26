@@ -4,6 +4,10 @@ import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * topic 是模糊匹配
+ * fanout 所有订阅的都会接收到
+ */
 @Configuration
 public class RabbitConfig {
 
