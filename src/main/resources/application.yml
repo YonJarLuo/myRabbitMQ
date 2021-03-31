@@ -10,6 +10,14 @@ spring:
     username: guest
     password: guest
 
+#  guest用户只适用于 rabbitmq服务同台机器运行项目访问
+#  rabbitmq:
+#    host: 10.168.6.237
+#    port: 5672
+#    username: admin
+#    password: admin
+#    virtual-host: /
+
 # swagger配置
 swagger:
   enabled: true
