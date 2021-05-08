@@ -10,10 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.support.MessageBuilder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @Api("RabbitMQ 一对一")
@@ -40,5 +37,11 @@ public class RabbitMQController {
         log.info("【MQ发送内容】：{}", messageCmd.getContext());
         mqBinding.output().send(MessageBuilder.withPayload(messageCmd.getContext()).build());
         return SingleResponse.buildSuccess();
+    }
+
+    @ApiOperation("测试接口")
+    @GetMapping("/test")
+    public Response test(){
+        return SingleResponse.of("test");
     }
 }
