@@ -33,7 +33,8 @@ public class TestInterceptor implements HandlerInterceptor {
             return false;
         }*/
         if ("test".equals(split[3])){
-            throw new Exception("抛异常");
+            //这里拦截到自己想拦截的接口，可以做业务处理
+//            throw new Exception("抛异常");
 //            return false;
         }
 
