@@ -2,14 +2,19 @@ package com.yonjar.demo.controller;
 
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
-import com.yonjar.demo.service.WebSocketServer;
+import com.yonjar.demo.handler.TeamworkEditMessage;
+import com.yonjar.demo.handler.WebSocketServer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.websocket.EncodeException;
+import java.io.IOException;
 
 /**
  * @Author luoyj
@@ -26,9 +31,13 @@ public class TestController {
 
     @ApiOperation("测试接口")
     @GetMapping("/test")
-    public Response test(){
-        webSocketServer.sendMessage("主动发送消息给前端页面");
-        return SingleResponse.of("test");
+    public Response test(@RequestBody TeamworkEditMessage message){
+        try {
+            webSocketServer.sendMessage(message);
+        } catch (IOException | EncodeException e) {
+            e.printStackTrace();
+        }
+        return SingleResponse.of(message);
     }
 
     @ApiOperation("测试接口")
