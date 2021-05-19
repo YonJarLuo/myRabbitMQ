@@ -80,8 +80,8 @@ public class WebSocketServer {
 
     /**
      * 群发消息
+     * 释放锁
      * @param message
-     * 消息内容
      */
     public void sendMessage(TeamworkEditMessage message) throws IOException, EncodeException {
         for (Map.Entry<String, Session> sessionEntry : clients.entrySet()) {
@@ -103,6 +103,7 @@ public class WebSocketServer {
 
     /**
      * 对特定客户端发送消息
+     * 刷新过期时间、抢锁
      * @param message
      * @param toSession
      */
