@@ -1,6 +1,7 @@
 package com.yonjar.demo.client;
 
 import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.ConfirmListener;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
@@ -27,14 +28,41 @@ public class Send {
         //建立通道channel
         Channel channel = connection.createChannel();
 
-        //声明队列
+        //开启确认 confirm:成功发送消息到broker 后，会返回ack;生产者可以开启监听，做一些其它逻辑操作
+        channel.confirmSelect();
+
+        //开启事务，性能慢，不推荐
+        /*channel.txSelect();
+        channel.txCommit();
+        channel.txRollback();*/
+
+        //声明队列queueDeclare(队列，是否持久化，是否排它 只有本连接可以消费，是否自动删除，map里面可以放参数：死信队列)
         String queueName = "hello";
-        channel.queueDeclare(queueName,false,false,false,null);
+        channel.queueDeclare(queueName,true,false,false,null);
         String message = "Hello RabbitMQ!";
+
+        //声明交换器exchangeDeclare(交换器名称，类型，是否持久化)；如果不声明，有默认的交换器和类型
+        channel.exchangeDeclare("","",true);
+
+        //绑定消息routing key 、交换器和队列 关系exchangeBind(目标，源，路由key,其它参数)
+        channel.exchangeBind("","","",null);
 
         //进行消息发布
         //exchange  routing key  props  body
         channel.basicPublish("",queueName,null,message.getBytes());
+
+        //设置监听，当消息成功发送到broker时，则会返回
+        channel.addConfirmListener(new ConfirmListener() {
+            @Override
+            public void handleAck(long l, boolean b) throws IOException {
+
+            }
+
+            @Override
+            public void handleNack(long l, boolean b) throws IOException {
+
+            }
+        });
 
         //关闭通道和连接
         channel.close();

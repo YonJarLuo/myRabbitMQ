@@ -15,7 +15,7 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface MQBinding {
 
-    String MYSELF_TEST_MESSAGE = "myself-test";
+    String MYSELF_TEST_MESSAGE = "debug.app.metadata.update";
 
     /**
      * 生产者通道绑定
