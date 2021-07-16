@@ -17,7 +17,7 @@
 
     //判断当前浏览器是否支持WebSocket, 主要此处要更换为自己的地址
     if ('WebSocket' in window) {
-        websocket = new WebSocket("ws://10.168.102.91:8086/test/oneToMany");
+        websocket = new WebSocket("ws://localhost:8086/test/websocket");
     } else {
         alert('Not support websocket')
     }
@@ -29,7 +29,7 @@
 
     //连接成功建立的回调方法
     websocket.onopen = function(event) {
-        //setMessageInnerHTML("open");
+        setMessageInnerHTML("open");
     }
 
     //接收到消息的回调方法

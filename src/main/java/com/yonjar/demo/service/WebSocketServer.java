@@ -12,10 +12,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author luoyj
  * @date 2021/5/17.
- * @description @ServerEndpoint(value = "/test/oneToMany") 这个地址要和前端调用保持一致
+ * @description @ServerEndpoint(value = "/test/websocket") 这个地址要和前端调用保持一致
  */
 @Slf4j
-@ServerEndpoint(value = "/test/oneToMany")
+@ServerEndpoint(value = "/test/websocket")
 @Component
 public class WebSocketServer {
 
