@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @description @ServerEndpoint(value = "/test/websocket") 这个地址要和前端调用保持一致
  */
 @Slf4j
-@ServerEndpoint(value = "/test/websocket")
+@ServerEndpoint(value = "/app/websocket")
 @Component
 public class WebSocketServer {
 

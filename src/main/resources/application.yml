@@ -18,6 +18,19 @@ spring:
     password: admin
     virtual-host: /
 
+# 使用SpringCloud Stream 如何配置 binding key、routing key、以及如何定义 exchange、queue name
+# spring.cloud.stream.bindings.myself-test-output.destination=message-center
+  #spring.cloud.stream.rabbit.bindings.myself-test-output.consumer.exchangeType=fanout /topic
+
+  #spring.cloud.stream.bindings.myself-test-input.destination=message-center
+  #spring.cloud.stream.bindings.myself-test-input.group=${spring.application.name}
+  #————————————————
+  #版权声明：本文为CSDN博主「科比333」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+  #原文链接：https://blog.csdn.net/qq_21067307/article/details/103839356
+#  cloud:
+#    stream:
+#      binders:
+
 # swagger配置
 swagger:
   enabled: true

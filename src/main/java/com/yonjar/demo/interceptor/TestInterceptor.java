@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @Author luoyj
  * @Date 2021/5/8.
+ * Springmvc 的拦截器
  * 主动编写需要重写的方法
  */
 public class TestInterceptor implements HandlerInterceptor {

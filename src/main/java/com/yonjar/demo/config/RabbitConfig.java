@@ -83,6 +83,13 @@ public class RabbitConfig {
         return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
     }
 
+
+    /**
+     * fanoutExchange 不需要.with
+     * @param AMessage
+     * @param fanoutExchange
+     * @return
+     */
     @Bean
     Binding bindingExchangeA(Queue AMessage,FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(AMessage).to(fanoutExchange);

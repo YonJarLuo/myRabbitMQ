@@ -29,9 +29,13 @@ public class Send {
 
         //声明队列
         String queueName = "hello";
+        //String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
         channel.queueDeclare(queueName,false,false,false,null);
         String message = "Hello RabbitMQ!";
 
+        /**
+         * 当前的默认的exchange类型为direct exchange（exchange为""时，使用的是direct exchange，必须要按照指定routing key = queue name匹配的路由方式才能发送
+         */
         //进行消息发布
         //exchange  routing key  props  body
         channel.basicPublish("",queueName,null,message.getBytes());

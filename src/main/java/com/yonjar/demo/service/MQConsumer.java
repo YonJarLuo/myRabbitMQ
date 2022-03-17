@@ -9,13 +9,14 @@ import org.springframework.stereotype.Component;
 /**
  * @Author luoyj
  * @Date 2021/3/31.
+ * 消费者
  */
 @Slf4j
 @Component
 @EnableBinding(MQBinding.class)
 public class MQConsumer {
 
-    @StreamListener(MQBinding.MYSELF_TEST_MESSAGE)
+    @StreamListener(MQBinding.MYSELF_TEST_MESSAGE_INPUT)
     public void consumerAppMQ(Message<String> message) {
         String payload = message.getPayload();
         log.info("【MQ接收内容】：{}", payload);
