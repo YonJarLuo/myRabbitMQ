@@ -19,6 +19,12 @@ spring:
     virtual-host: /
 
 # 使用SpringCloud Stream 如何配置 binding key、routing key、以及如何定义 exchange、queue name
+# bindingKey 可以通过配置 spring.cloud.stream.rabbit.bindings.<channelName>.consumer.bindingRoutingKey 来达到效果
+
+# spring.cloud.stream.bindings.flowInput.destination=flow-dest-${spring.application.name}
+#spring.cloud.stream.bindings.flowInput.group=flow-group
+#spring.cloud.stream.bindings.flowOutput.destination=flow-dest-${spring.application.name}
+
 # spring.cloud.stream.bindings.myself-test-output.destination=message-center
   #spring.cloud.stream.rabbit.bindings.myself-test-output.consumer.exchangeType=fanout /topic
 

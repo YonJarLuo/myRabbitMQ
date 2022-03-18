@@ -15,7 +15,7 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface MQBinding {
 
-    //这里是方便测试。实际中 生产者和消费者是2个服务，分别定义 output\input
+    //这里是方便测试。实际中 生产者和消费者是2个服务，分别定义 channel: output\input
     String MYSELF_TEST_MESSAGE_OUTPUT = "myself-test-output";
     String MYSELF_TEST_MESSAGE_INPUT = "myself-test-input";
 
