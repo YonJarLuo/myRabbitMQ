@@ -25,7 +25,7 @@
         <lombok.version>1.18.12</lombok.version>
         <swagger-spring-boot.version>1.9.1.RELEASE</swagger-spring-boot.version>
         <swagger-annotations.version>1.5.24</swagger-annotations.version>
-        <amqp-client.version>5.5.0</amqp-client.version>
+        <amqp-client.version>5.18.0</amqp-client.version>
         <alibaba.cola.version>4.0.1</alibaba.cola.version>
         <fastjson.version>1.2.73</fastjson.version>
         <spring-cloud-stream-rabbit.version>3.0.11.RELEASE</spring-cloud-stream-rabbit.version>
